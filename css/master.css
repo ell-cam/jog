@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg-clr: #eeeeee;
+    --text-clr: black;
+
+    --nav-width: 2rem;
+    --navbar-clr: var(--bg-clr);
+
+    --sidebar-width: 20rem;
+    --sidebar-clr: whitesmoke;
+
+    --green-primary: #2ecc71;
+    --blue-primary: rgb(16, 184, 240);
+    --orange-primary: orange;
+
+    --border-clr: gray;
+
+    --person-card-clr: var(--bg-clr);
+
+    --red-sprint: #F68C8C;
+    --orange-sprint: #F7C683;
+    --yellow-sprint: #cad15f;
+    --green-sprint: #89D1A3;
+    --blue-sprint: #89B7BC;
+    --dust-sprint: #CB8888;
+    --beige-sprint: #C3CEC5;
+    --lightorange-sprint: #d6af8b;
+    --lightyellow-sprint: #e9db90;
+    --lightgreen-sprint: #a6cc91;
+    --lightblue-sprint: #599c9c;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    background-color: var(--bg-clr);
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-y: hidden;
+}
+
+.grid {
+    display: grid;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-column {
+    display: flex;
+    flex-flow: column;
+}
+
+.bottom {
+    margin-top: auto;
+}
+
+.flex-column-reverse {
+    display: flex;
+    flex-flow: column-reverse;
+}
+
+.gap-1 {
+    gap: 1rem;
+}
+
+.italics {
+    font-style: italic;
+    opacity: 0.8;
+}
+
+/* input {
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: lightgrey;
+} */
+
+.margin-block-1 {
+    margin-block: 1rem;
+}

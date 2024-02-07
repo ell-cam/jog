@@ -1,0 +1,117 @@
+.sidebar {
+    height: 100%;
+    background-color: var(--sidebar-clr);
+    overflow: hidden;
+    min-width: var(--sidebar-width);
+}
+
+.closed {
+    width: 0;
+}
+
+.sidebar .title {
+    font-size: 1.5rem;
+    font-weight: 350;
+    font-family: 'Segoe UI';
+    text-transform: uppercase;
+    margin: auto;
+    text-align: center;
+    width: 100%;
+}
+
+.sidebar header {
+    margin-inline: auto;
+    padding-block: 0.5rem;
+    width: 100%;
+}
+
+.close-sidebar {
+    margin-inline: auto 1rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.close-sidebar:hover {
+    background-color: var(--bg-clr);
+    border-radius: 6px;
+}
+
+.open-sidebar {
+    margin-inline: auto 1rem;
+    margin-bottom: auto;
+    cursor: pointer;
+    padding: 0.5rem;
+    transform: rotate(-180deg);
+}
+
+.open-sidebar:hover {
+    background-color: var(--sidebar-clr);
+    border-radius: 6px;
+}
+
+span.hr {
+    width: 90%;
+    margin-inline: auto;
+    border-bottom: 1px solid gray;
+}
+
+.hidden {
+    display: none;
+}
+
+.no-results {
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.team-container {
+    overflow-y: auto;
+}
+
+footer.add-person {
+    --footer-height: 3rem;
+    width: 100%;
+    height: var(--footer-height);
+    min-height: var(--footer-height);
+}
+
+footer.add-person .btn {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+    background-color: var(--bg-clr);
+}
+
+footer.add-person .btn:hover {
+    background-color: silver;
+}
+
+.add-person-form {
+    padding: 0.5rem;
+    padding-block: 2rem;
+    height: 13rem;
+    gap: 1rem;
+}
+
+.add-person-form label {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+.add-person-form label input {
+    padding: 0.2rem;
+    place-self: start;
+}
+
+.add-person-form button {
+    padding: 0.2rem 1rem;
+    width: fit-content;
+}
+
+.position {
+    text-transform: capitalize;
+    font-weight: bold;
+}

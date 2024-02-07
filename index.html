@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Manager</title>
+
+    <!-- MDL for backward compatibility -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <script src="https://code.getmdl.io/1.3.0/material.min.js" type="module"></script>
+
+    <!-- Add favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/master.css" />
+    <link rel="stylesheet" href="./css/navbar.css" />
+    <link rel="stylesheet" href="./css/sidebar.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/ribbon.css" />
+    <link rel="stylesheet" href="./css/person.css" />
+    <link rel="stylesheet" href="./css/buttons.css" />
+    <link rel="stylesheet" href="./css/task.css" />
+    <link rel="stylesheet" href="./css/taskmodal.css">
+
+
+    <!-- JS -->
+    <script src="./js/index.js" type="module"></script>
+    <script src="./js/person/person-card.js" type="module"></script>
+    <script src="./js/person/person.js" type="module"></script>
+    <script src="./js/person/personfilter.js" type="module"></script>
+    <script src="./js/person/addperson.js" type="module"></script>
+    <script src="./js/task/task.js" type="module"></script>
+    <script src="./js/closesidebar.js" type="module"></script>
+    <script src="./js/task/modal-task.js" type="module"></script>
+    <script src="./js/radioButton.js" type="module"></script>
+
+</head>
+
+<body>
+    <nav class="flex-column-reverse">
+        <div class="circle"></div>
+        <section class="sprints-container flex-column-reverse">
+            <a href="#" class="nav-item nav-logo" id="product-backlog">
+                <img src="./assets/home.svg" alt="logo" />
+            </a>
+            <div class="spacer"></div>
+            <hr>
+            <div class="nav-item nav-sprint" id="sprint-icon">
+                <img src="./assets/sprint-clock.png" alt="sprints" />
+            </div>
+        </section>
+        <a href="#" class="nav-item add__new-sprint">
+            +
+        </a>
+
+        <!-- Open sidebar button -->
+        <img class="open-sidebar hidden" src="./assets/arrow-left.svg" alt="" />
+    </nav>
+
+    <section class="sidebar flex-column">
+        <header class="flex">
+            <h1 class="title">Project 1</h1>
+            <img class="close-sidebar" src="./assets/arrow-left.svg" alt="" />
+        </header>
+        <section class="team-container">
+            <header class="flex">
+                <input type="text" class="search-input search-team" placeholder="Search" />
+            </header>
+
+            <div class="no-results hidden">
+                <span>No results found!</span>
+            </div>
+        </section>
+        <span class="hr bottom"></span>
+        <form class="hidden add-person-form flex-column">
+            <label>
+                <span>Name:</span>
+                <input type="text" name="add-person-name" id="add-person-name" required>
+            </label>
+            <label>
+                <span>Phone:</span>
+                <input type="text" name="add-person-phone" id="add-person-phone" required>
+            </label>
+            <label>
+                <span>Position:</span>
+                <input type="text" name="add-person-position" id="add-person-position" required>
+            </label>
+            <label>
+                <span>Email:</span>
+                <input type="text" name="add-person-email" id="add-person-email" required>
+            </label>
+            <label>
+                <span>Is admin:</span>
+                <input type="checkbox" name="add-person-admin" id="add-person-admin">
+            </label>
+            <button type="submit" class="add-person-submit">Add
+            </button>
+        </form>
+        <footer class="add-person">
+            <div class="btn">Add person</div>
+        </footer>
+    </section>
+    <main>
+        <section class="main">
+            <header class="ribbon flex">
+                <div class="title" id="dashboard-title">Product Backlog</div>
+                <div class="search">
+                    <input type="text" class="search-input" placeholder="Search" />
+                </div>
+            </header>
+        </section>
+    </main>
+
+    <!-- Templates -->
+    <template id="person-card">
+        <article class="person-card">
+            <div class="person-name"></div>
+            <div class="position italics"></div>
+            <div class="person-tasks-assigned">
+                <span>Number of tasks assigned:</span>
+                <span class="tasks-number"></span>
+            </div>
+        </article>
+    </template>
+
+    <template id="task-card">
+        <article class="task-card">
+            <div class="task-card-main">
+                <div class="task-status"></div>
+                <div class="task-title"></div>
+                <div class="task-summary">
+                    <div class="task-card__newtask-priority flex" title="Priority">
+                        <img src="./assets/exclamation.svg" alt="priority" class="priority">
+                        <img src="./assets/exclamation.svg" alt="priority" class="priority">
+                        <img src="./assets/exclamation.svg" alt="priority" class="priority">
+                    </div>
+                    <div class="task-deadline"></div>
+                    <div class="task-time-tracked">
+                        <i class="material-icons task-time-tracked__icon">hourglass_full</i>
+                        <div class="task-time-tracked__content">N/A</div>
+                    </div>
+                    <div class="task-assignee">
+                        <i class="material-icons">person_add</i>
+                    </div>
+                </div>
+            </div>
+            <div class="task-card-icon">
+                <i class="material-icons task-finished-icon">forward</i>
+            </div>
+        </article>
+    </template>
+
+    <button class="add-task-btn">
+        <i class="material-icons">add</i>
+        <span class="add-task-btn-text">New Task</span>
+    </button>
+
+    <!-- Modals -->
+    <dialog class="modal__newtask">
+        <section class="modal__container flex-column">
+            <form action="#" class="modal__newtask-form flex-column">
+                <header class="flex gap-1">
+                    <div class="modal__newtask-main-title" contenteditable="true"
+                        placeholder="New Task"></div>
+                    <div class="modal__newtask-priority flex" title="Priority">
+                        <img src="./assets/exclamation.svg" alt="priority" class="priority">
+                        <img src="./assets/exclamation.svg" alt="priority" class="priority">
+                        <img src="./assets/exclamation.svg" alt="priority" class="priority">
+                    </div>
+                </header>
+                <section class="modal__newtask-status-points flex">
+                    <div class="modal__newtask-status flex gap-1">
+                        <!-- <div class="status-btn" data-value="open"></div> -->
+                        <label class="status-btn" data-value="open" title="open">
+                            <span class="status-btn-text">Open</span>
+                            <input type="radio" name="status" value="open">
+                        </label>
+                        <label class="status-btn" data-value="in-progress" title="In Progress">
+                            <span class="status-btn-text">In Progress</span>
+                            <input type="radio" name="status" value="in-progress">
+                        </label>
+                        <label class="status-btn" data-value="closed" title="Closed">
+                            <span class="status-btn-text">Closed</span>
+                            <input type="radio" name="status" value="closed">
+                        </label>
+                    </div>
+                    <div class="modal__newtask-points">
+                        <span class="title">Points</span>
+                        <select type="number" name="points" class="newtask-points-select"
+                            id="points">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                </section>
+
+                <section class="grid modal__newtask-details">
+                    <article class="column flex-column">
+                        <textarea class="newtask-description" name="newtask-description"
+                            id="newtask-description" placeholder="Description"></textarea>
+
+                        <label class="tags">
+                            <strong>tags</strong>
+                            <div class="tags-container flex"></div>
+                        </label>
+                    </article>
+                    <article class="column">
+                        <div class="modal__newtask-task-type flex gap-1">
+                            <!-- Radio buttons -->
+                            <label class="radio-button">
+                                <input type="radio" name="newtask-type" value="feature" checked>
+                                <span>Feature</span>
+                            </label>
+                            <label class="radio-button">
+                                <input type="radio" name="newtask-type" value="bug">
+                                <span>Bug</span>
+                            </label>
+                            <!-- ------------- -->
+                        </div>
+                        <div class="details-group grid">
+                            <div class="icon detail">
+                                <img src="./assets/calendar.svg" alt="calendar">
+                            </div>
+                            <div class="item detail">
+                                <span class="text">Due:</span>
+                                <input type="date" name="duedate" class="newtask-duedate">
+                            </div>
+
+                            <div class="icon detail">
+                                <img src="./assets/folder.svg" alt="folder">
+                            </div>
+                            <div class="item detail">
+                                <select name="backlog" id="backlog" class="newtask-backlog-select">
+                                    <option value="product-backlog">Product Backlog</option>
+                                    <option value="sprint-1">Sprint 1</option>
+                                    <option value="sprint-2">Sprint 2</option>
+                                </select>
+                            </div>
+                            <div class="icon detail">
+                                <img src="./assets/person.svg" alt="tag">
+                            </div>
+                            <div class="item detail">
+                                <input name="assignee" type="text" class="newtask-assignee"
+                                    list="assignee" placeholder="John Doe" autocomplete="off">
+                                <datalist id="assignee"></datalist>
+                            </div>
+
+                            <div class="icon detail">
+                                <img src="./assets/tag.svg" alt="">
+                            </div>
+                            <div class="item detail">
+                                <input name="tags" type="text" class="newtask-tags" list="tags"
+                                    placeholder="Tag | HTML" autocomplete="off">
+                                <datalist id="tags"></datalist>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+                <section class="newtask-timetrack">
+                    <header>
+                        <strong>Time tracked</strong>
+                        <button class="newtask-add-time circle" type="button">+</button>
+                    </header>
+                    <article class="timetrack-container flex-column gap-1">
+                        <div class="input-container flex gap-1">
+                            <input type="date" name="timetrack" id="timetrack">
+                            <input type="text" name="timeamount" id="timeamount"
+                                placeholder="1h 30m">
+                        </div>
+                    </article>
+                </section>
+                <button class="submit">create</button>
+            </form>
+        </section>
+    </dialog>
+</body>
+
+</html>

@@ -1,0 +1,380 @@
+:root {
+    --close-btn-height: 2.5rem;
+    --main-title-size: 2rem;
+}
+
+.circle {
+    border-radius: 50%;
+}
+
+.add-task-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 3rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+    background-color: var(--green-primary);
+    color: var(--bg-clr);
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    transition: 0.5s;
+}
+
+.add-task-btn:hover {
+    /* transform: scale(1.1); */
+    width: fit-content;
+    height: 3rem;
+    aspect-ratio: 0;
+    border-radius: 0;
+    display: flex;
+    place-items: center;
+    padding: 1rem;
+}
+
+.add-task-btn-text {
+    display: none;
+}
+
+.add-task-btn:hover .add-task-btn-text {
+    display: block;
+}
+
+/* Modal */
+.modal__newtask {
+    height: 90vh;
+    width: min(90vw, 50rem);
+    margin: auto;
+    border: none;
+}
+
+.modal__newtask input {
+    border: none;
+    outline: none;
+}
+
+dialog.modal__newtask::backdrop {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal__container {
+    height: 100%;
+}
+
+.modal__newtask-form {
+    margin: 1rem 2rem;
+    height: 100%;
+}
+
+.modal__newtask-form header {
+    height: 3rem;
+}
+
+[contenteditable="true"],
+.modal__newtask input[type="text"] {
+    outline: none;
+    border-bottom: 4px solid var(--border-clr);
+}
+
+[contenteditable="true"]:focus,
+.modal__newtask input[type="text"]:focus {
+    --border-clr: black;
+}
+
+.modal__newtask-main-title {
+    width: 100%;
+    font-size: var(--main-title-size);
+    font-weight: bolder;
+    cursor: text;
+    padding-bottom: 5px;
+    max-height: 4rem;
+    overflow-y: auto;
+}
+
+.modal__newtask-main-title:focus {
+    --border-clr: black;
+}
+
+.modal__newtask-main-title::-webkit-scrollbar {
+    width: 0.5rem;
+    cursor: default;
+}
+.modal__newtask-main-title::-webkit-scrollbar-thumb {
+    background-color: gray;
+}
+
+.modal__newtask-main-title::-webkit-scrollbar-track {
+    background-color: var(--bg-clr);
+}
+
+.modal__newtask-main-title:empty::before,
+.modal__newtask-main-title:empty:not(:focus)::before {
+    content: attr(placeholder);
+    color: grey;
+    font-style: italic;
+}
+
+.modal__newtask-priority {
+    width: 5rem;
+    margin-left: auto;
+    flex-flow: row-reverse;
+}
+
+.priority {
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    filter: invert(0.5);
+}
+
+.priority:hover ~ .priority,
+.priority:hover {
+    filter: invert(0);
+}
+
+.active-priority ~ .priority,
+.active-priority {
+    filter: invert(0);
+}
+
+/* Points and status */
+
+.modal__newtask-status-points {
+    place-items: center;
+    gap: 1rem;
+    margin-block: 0.5rem;
+}
+
+.modal__newtask-status .status-btn {
+    min-width: 1.5rem;
+    width: fit-content;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    transition-property: width;
+    transition: 0.5s;
+}
+.modal__newtask-status .status-btn:hover {
+    width: fit-content;
+    height: inherit;
+    aspect-ratio: inherit;
+    border-radius: 0;
+    display: flex;
+    place-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.status-btn-text {
+    display: none;
+}
+
+.status-btn:hover .status-btn-text {
+    display: block;
+}
+
+.modal__newtask-status .status-btn input {
+    display: none;
+}
+.status-btn:has(input:checked) {
+    outline: 5px solid black;
+}
+
+.status-btn[data-value="open"] {
+    background-color: var(--blue-primary);
+}
+.status-btn[data-value="in-progress"] {
+    background-color: var(--orange-primary);
+}
+.status-btn[data-value="closed"] {
+    background-color: var(--green-primary);
+}
+
+/* .modal__newtask-points input[type="number"] {
+    width: 3rem;
+    height: 1.5rem;
+    outline: none;
+    text-align: center;
+    cursor: text;
+    border-bottom: 2px solid black;
+} */
+.newtask-points-select {
+    /* width: 100%; */
+    border: none;
+    border-bottom: 2px solid var(--border-clr);
+    outline: none;
+    font-size: inherit;
+}
+
+/* ================= */
+
+/* description | tags | deadlines and other details */
+
+.modal__newtask-details {
+    height: 50%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 1rem;
+}
+
+.newtask-description {
+    --radio-border-thickness: 2px;
+    --radio-height: calc(1.8rem + 4px + 1rem);
+    resize: none;
+    padding: 0.5rem;
+    /* margin-top: var(--radio-height); */
+    /* min-height: 10rem; */
+    /* height: 100%; */
+    /* max-height: 12rem; */
+    height: 12rem;
+}
+
+/* ================================================= */
+
+.modal__newtask-task-type {
+    place-content: space-around;
+}
+
+/* Radio button */
+
+.radio-button input {
+    display: none;
+}
+.radio-button {
+    --height: 1.8rem;
+    --width: 6rem;
+    --border-thickness: 2px;
+    display: grid;
+    place-items: center;
+    height: var(--height);
+    width: var(--width);
+    border: var(--border-thickness) solid black;
+    border-radius: 1rem;
+    box-shadow: 0 0 4px 0px white inset, 0 0 2px 0px white;
+}
+
+label.radio-button:has(input[type="radio"]:checked) {
+    background-color: var(--green-primary);
+    border: var(--border-thickness) solid var(--green-primary);
+    color: var(--bg-clr);
+}
+
+/* ============ */
+
+/* details group */
+.modal__newtask-details .details-group {
+    margin-top: 1rem;
+    grid-template-columns: 5rem 1fr;
+    row-gap: 0.5rem;
+    font-size: larger;
+}
+
+.detail:nth-child(even) {
+    display: flex;
+    margin-block: auto;
+    gap: 1rem;
+}
+
+.details-group .icon img {
+    width: 3.5rem;
+    aspect-ratio: 1;
+}
+
+.detail input[type="date"] {
+    border-bottom: 2px solid black;
+    width: 100%;
+}
+
+.newtask-backlog-select {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid var(--border-clr);
+    outline: none;
+    font-size: inherit;
+}
+
+.newtask-backlog-select {
+    text-transform: capitalize;
+}
+
+.details-group input[type="text"] {
+    border-bottom: 2px solid var(--border-clr);
+    font-size: inherit;
+}
+
+.modal__newtask button.submit {
+    margin-top: auto;
+    padding-block: 0.5rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+    background-color: var(--green-primary);
+    color: var(--bg-clr);
+    border: none;
+    cursor: pointer;
+}
+
+.modal__newtask button.submit:hover {
+    background-color: green;
+}
+
+/* Tags */
+
+label.tags {
+    margin-top: 0.5rem;
+    text-transform: capitalize;
+}
+
+.tags-container {
+    width: 100%;
+    max-width: 25rem;
+    overflow-x: auto;
+    margin-top: 1rem;
+    column-gap: 0.5rem;
+}
+
+.tags-container:empty::before {
+    content: "No tags yet!";
+}
+
+.tag {
+    border: 1px solid black;
+    height: 1.5rem;
+    border-radius: 1rem;
+    padding-inline: 1rem;
+    display: grid;
+    place-content: center;
+}
+
+/* Time tracked */
+
+.timetrack-container {
+    max-height: 7rem;
+    overflow-y: auto;
+    width: 50%;
+}
+
+.input-container :is(input[type="text"], input[type="date"]) {
+    border-bottom: 2px solid gray;
+    width: 100%;
+}
+
+.input-container :is(input[type="text"], input[type="date"]):focus {
+    border-bottom: 2px solid black;
+}
+
+.newtask-add-time {
+    width: 2rem;
+    aspect-ratio: 1;
+    font-size: larger;
+    font-weight: bolder;
+    border: none;
+    cursor: pointer;
+}
+
+.newtask-add-time:hover {
+    background-color: var(--green-primary);
+    color: var(--bg-clr);
+}

@@ -1,0 +1,90 @@
+nav {
+    counter-reset: sprint;
+    height: 100vh;
+    width: var(--nav-width);
+    background-color: var(--navbar-clr);
+    border-right: 2px solid black;
+    gap: 1rem;
+    padding-inline: 0.5rem;
+    /* overflow-y: auto; */
+}
+
+nav .circle {
+    width: var(--nav-width);
+    height: var(--nav-width);
+    border-radius: 50%;
+    /* background-color: blue; */
+    background-image: url(../assets/icon.png);
+    background-size: cover;
+    margin-bottom: 1rem;
+}
+
+nav .nav-logo img {
+    width: 80%;
+    padding: 10%;
+    opacity: 0.7;
+    margin-top: 15%;
+}
+
+nav .nav-stats img {
+    width: 80%;
+    padding: 10%;
+    opacity: 0.7;
+    margin-top: 100%;
+}
+
+nav .nav-sprint img {
+    width: 80%;
+    padding: 10%;
+    opacity: 0.5;
+    margin-top: 30%;
+}
+
+nav .add__new-sprint {
+    --add-btn-clr: var(--text-clr);
+    width: 75%;
+    height: 1.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: var(--add-btn-clr);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+nav .add__new-sprint:hover {
+    --add-btn-clr: var(--blue-primary);
+}
+
+.logo__sprint {
+    width: 1.7rem;
+    height: 1.7rem;
+    margin-bottom: 20px; 
+    border-radius: 5px;
+}
+
+.logo__sprint:hover {
+    display: flex;
+    background-color: inherit;
+    width: 5.5rem;
+}
+
+nav .logo__sprint:hover::after {
+    content: "Sprint: " counter(sprint);
+    background-color: inherit;
+    color: var(--text-clr);
+    width: 5.5rem;
+    height: 2rem;
+    display: flex;
+    margin-block: auto;
+    place-items: center;
+    padding-inline: 0.5rem;
+    color: var(--navbar-clr);
+}
+
+.logo__sprint__text {
+    counter-increment: sprint;
+    position: relative;
+    text-decoration: none;
+}

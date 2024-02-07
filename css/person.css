@@ -1,0 +1,23 @@
+.person-card {
+    padding: 1rem 0.5rem;
+    margin: 1rem 0.5rem;
+    background-color: var(--person-card-clr);
+    width: 85%;
+    margin-inline: auto;
+}
+
+.person-card .person-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.search-team {
+    border-radius: 0;
+    width: 70%;
+    margin-inline: auto;
+    margin-top: 5.5%;
+}
+
+.person-tasks-assigned {
+    margin-top: 10px;
+}

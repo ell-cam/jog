@@ -1,0 +1,42 @@
+.ribbon {
+    --ribbon-height: 50px;
+    height: var(--ribbon-height);
+    position: sticky;
+    top: 0;
+    background-color: var(--bg-clr);
+    padding-block: 0.5rem;
+    padding-bottom: 0;
+    z-index: 1;
+    /* box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1); */
+}
+
+.search {
+    margin-inline: auto;
+}
+
+.search-input {
+    background-image: url("../assets/search.svg");
+    background-repeat: no-repeat;
+    background-size: 1.2rem;
+    background-position: left 6px center;
+
+    padding: 0.8rem;
+    padding-left: 2.5rem;
+    border: none;
+    width: min(40ch, 60vw);
+    border-radius: 1rem;
+    font-weight: bold;
+}
+
+.search-input:focus {
+    border: none;
+    outline: none;
+}
+
+#dashboard-title {
+    text-transform: capitalize;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: 'Segoe UI';
+    margin-left: 20px;
+}

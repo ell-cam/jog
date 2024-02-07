@@ -1,0 +1,12 @@
+.rounded-button {
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    transition-property: transform;
+    transition-duration: 0.1;
+}
+
+.rounded-button:hover {
+    transform: scale(1.1);
+}
+
