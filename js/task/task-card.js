@@ -148,7 +148,7 @@ export default class TaskCard extends HTMLElement {
     connectedCallback() {
         const card = document.importNode(template.content, true);
         const trashImg = Object.assign(document.createElement("img"), {
-            src: "../../assets/bin.svg",
+            src: "../../assets/delete.png",
             alt: "delete task",
         })
 
