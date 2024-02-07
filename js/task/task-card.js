@@ -149,7 +149,7 @@ export default class TaskCard extends HTMLElement {
         const card = document.importNode(template.content, true);
         const trashImg = Object.assign(document.createElement("img"), {
             src: "../../assets/delete.png",
-            alt: "delete task",
+            alt: "delete task icon",
         })
 
         // const trashImg
