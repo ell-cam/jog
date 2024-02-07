@@ -18,8 +18,8 @@ import {
     minutesToHoursAndMinutes,
     formatDate,
     organiseTasks,
-} from "../Helpers/utilities.js";
-import { STATUS } from "../Helpers/enums.js"
+} from "../helpers/utilities.js";
+import { STATUS } from "../helpers/enums.js"
 import { editModal } from "./modal-task.js";
 import People from "../person/people.js";
 

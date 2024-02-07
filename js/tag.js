@@ -6,7 +6,7 @@
  *  Chris Patrick
  */
 
-import { defaultTags } from "./Helpers/utilities.js";
+import { defaultTags } from "./helpers/utilities.js";
 
 export default class Tags {
     static #availableTags = [...defaultTags];

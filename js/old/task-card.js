@@ -6,7 +6,7 @@
  *  Chris Patrick 
  */
 
-import { STATUS } from "../Helpers/enums.js";
+import { STATUS } from "../helpers/enums.js";
 import {
     stringTimeToMinutes,
     minutesToHoursAndMinutes,
