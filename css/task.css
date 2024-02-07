@@ -113,6 +113,11 @@
     cursor: pointer;
 }
 
+.delete-icon:hover {
+    color: red;
+    cursor: pointer;
+}
+
 .task-card-icon img:hover {
     filter: invert(0.5) sepia(14%) saturate(23) hue-rotate(-45deg) brightness(1.1) contrast(8.6);
 }

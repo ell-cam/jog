@@ -160,6 +160,7 @@ export default class TaskCard extends HTMLElement {
       // Then replace the tick mark with the delete icon
       const icon = card.querySelector(".task-card-icon");
       icon.innerHTML = '<i class="fas fa-trash"></i>';
+      icon.classList.add("delete-icon");
       icon.addEventListener("click", (e) => {
         e.stopPropagation();
         if (window.confirm("Are you sure you want to delete this task?")) {
