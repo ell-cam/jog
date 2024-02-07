@@ -19,7 +19,7 @@ import {
     formatDate,
     organiseTasks,
 } from "../Helpers/utilities.js";
-import { STATUS } from "../helpers/enums.js"
+import { STATUS } from "../Helpers/enums.js"
 import { editModal } from "./modal-task.js";
 import People from "../person/people.js";
 
