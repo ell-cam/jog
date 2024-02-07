@@ -9,7 +9,7 @@
 
 import People from "./people.js";
 import TaskCard from '../task/task-card.js';
-import { clearDashboard } from "../Helpers/utilities.js"
+import { clearDashboard } from "../helper/utilities.js";
 import Storage from "../storage/storage.js";
 
 const template = document.querySelector("template#person-card");

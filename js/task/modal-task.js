@@ -13,7 +13,7 @@ import Task from "./task.js";
 import People from "../person/people.js";
 import Storage from "../storage/storage.js";
 import TaskCard from "./task-card.js";
-import { organiseTasks } from "../helpers/utilities.js"
+import { organiseTasks } from "../helper/utilities.js"
 
 const dialog = document.querySelector("dialog.modal__newtask");
 const showDialogButton = document.querySelector(".add-task-btn");

@@ -3,7 +3,7 @@ import Person from "./person/person.js";
 import PersonCard from "./person/person-card.js";
 import TaskCard from "./task/task-card.js";
 import Tags from "./tag.js";
-import { clearDashboard, organiseTasks } from "./Helpers/utilities.js";
+import { clearDashboard, organiseTasks } from "./helper/utilities.js";
 import Storage from "./storage/storage.js";
 import storageAvailable from "./storage/storageexists.js";
 // import Task from "./task/task.js";

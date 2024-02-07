@@ -7,7 +7,7 @@
  *  Marcus Wei
  */
 
-import { IDGenerator } from '../Helpers/utilities.js';
+import { IDGenerator } from "../helper/utilities.js";
 
 class Person {
     // add email to the person class constructor 

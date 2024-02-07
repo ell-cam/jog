@@ -5,8 +5,8 @@
  *  Chris Patrick 
  */
 
-import { STATUS, PRIORITY } from "../helpers/enums.js";
-import { IDGenerator } from "../helpers/utilities.js";
+import { STATUS, PRIORITY } from "../helper/enums.js";
+import { IDGenerator } from "../helper/utilities.js";
 import People from '../person/people.js'
 
 class Task {
