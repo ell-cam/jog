@@ -15,8 +15,9 @@
     font-family: 'Segoe UI';
     text-transform: uppercase;
     margin: auto;
-    text-align: center;
+    text-align: left;
     width: 100%;
+    margin-left: 25px;
 }
 
 .sidebar header {

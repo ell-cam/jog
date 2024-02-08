@@ -378,3 +378,7 @@ label.tags {
     background-color: var(--green-primary);
     color: var(--bg-clr);
 }
+
+.error-border {
+    border: 2px solid red; /* Red border for highlighting */
+}

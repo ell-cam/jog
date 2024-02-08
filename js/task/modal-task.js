@@ -52,6 +52,16 @@ taskForm.addEventListener("submit", (event) => {
     const taskData = getFormDetails();
     const activeSprint = document.querySelector(".sprint-active");
 
+    // Check if the task title is empty
+    if (taskData.title.trim() === "") {
+        // Add error highlighting to the input field
+        document.querySelector(".modal__newtask-main-title").classList.add("error-border");
+        return; // Prevent further execution
+    }
+
+    // Remove error highlighting from the input field
+    document.querySelector(".modal__newtask-main-title").classList.remove("error-border");
+
     if (submitButton.textContent === "update") {
         // ProductBacklog.editTask(globalTaskId, taskData);
         const newTask = new Task(...Object.values(taskData));
@@ -189,7 +199,11 @@ function reRenderTaskCards() {
     })
 }
 
-dialog.addEventListener("close", () => reRenderTaskCards());
+dialog.addEventListener("close", () => {
+    // Remove error highlighting from the input field
+    document.querySelector(".modal__newtask-main-title").classList.remove("error-border");
+    reRenderTaskCards();
+});
 
 function getFormDetails() {
     let assigneeId = "";
@@ -317,6 +331,7 @@ function editModal(taskId) {
             input.checked = true;
         }
     });
+
     // set the task type
     [...taskTypeInput].forEach((input) => {
         if (input.value === taskType) {

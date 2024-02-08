@@ -1,5 +1,5 @@
 .ribbon {
-    --ribbon-height: 50px;
+    --ribbon-height: 60px;
     height: var(--ribbon-height);
     position: sticky;
     top: 0;
@@ -38,5 +38,7 @@
     font-size: 1.5rem;
     font-weight: 600;
     font-family: 'Segoe UI';
-    margin-left: 20px;
+    margin-left: 80px;
+    margin-top: 3px;
+    margin-inline: auto;
 }
